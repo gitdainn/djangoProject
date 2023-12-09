@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DBNEWSMOA</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+        }
+
+        #header {
+            width:100%;
+            font-size: 21px;
+            font-family: Georgia, sans-serif;
+            background-color: #ffffff;
+            color: #284885;
+            text-align: left;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            border-bottom: 3px solid #6F8DBF;
+            justify-content: space-between;
+
+        }
+
+        #logo {
+            width:30%;
+            font-size: 74px;
+            font-weight: round;
+
+        }
+        #categories {
+            text-align:left;
+            font-family: IBM Plex Sans KR, sans-serif;
+            display: flex;
+            gap: 20px;
+            margin-bottom: -50px;
+            font-size: 25px;
+            text-decoration-line: none;
+
+
+            color: white;
+
+            padding-inline: 20px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+
+            margin-right : 500px;
+        }
+
+        #categories a {
+            color: black;
+        }
+
+        a{
+            text-decoration-line: none;
+            color: black;
+            font-size: 24px;
+
+        }
+
+        #verticalLine {
+            width: 3px; /* 세로 선의 너비 */
+            height: 25px;
+            background-color: #B6C6D3;
+            margin: 0 20px; /* 선 좌우 여백 */
+        }
+        .search-container {
+            width: 700px;
+            height:50px;
+            margin: 100px auto;
+            text-align: center;
+            display: flex;
+            border: 1px solid #ccc;
+            border-radius: 50px;
+            overflow: hidden;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            outline: none;
+        }
+
+        .search-button {
+            background-color: #30516d;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+        }
+        .search-back {
+            height:500px;
+            display: flex;
+            justify-content: space-between;
+            line-height: 2;
+            background-color: #becedb;
+            color: black;
+        }
+        #breaking-news {
+            font-weight: bold;
+            line-height: 2;
+            margin-right: 10px;
+            padding-right: 10px;
+        }
+
+
+    </style>
+</head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;700&display=swap">
+<body>
+    <!--윗부분-->
+    <div id="header">
+        <div id="logo" ><a href="{%url 'main'%}" style="font-size: 74px;color: #12326e;">DBNEWSMOA</a></div>
+
+            <div id="categories">
+                    <div><a href="{% url 'economy' %}">경제</a></div>
+                    <div id="verticalLine"></div>
+                    <div><a href="{% url 'politics' %}">정치</a></div>
+                    <div id="verticalLine"></div>
+                    <div><a href="{% url 'sports' %}">스포츠</a></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<bottom>
+
+    <div class="search-back">
+        <form method="post">
+        {% csrf_token %}
+        <div class="search-container">
+            <label for="date"></label>
+            <input type="text"  name="date" id="date" class="search-input" placeholder="EX) yyyy.mm.dd 검색 가능 기간: 2022.01.01~2023.11.01">
+            <button type="submit" class="search-button" name="search_type" value="date">날짜 검색</button>
+        </div>
+    </form>
+    </div>
+
+    <div class ="breaking_news">
+        <h2>검색 결과</h2>
+        <!-- Breaking news articles go here -->
+        {% for data in date_data %}
+        <a href="{{ data.article_link }}">
+            <img src="{{ data.image }}" alt="이미지">
+            <li>제목: {{ data.title }}</li>
+            <li>언론사: {{ data.media_outlet }}</li>
+            <li>날짜: {{ data.date }}</li>
+            </a>
+
+        {% endfor %}
+    </div>
+</bottom>
+</html>

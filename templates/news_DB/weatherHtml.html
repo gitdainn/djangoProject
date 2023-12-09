@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>News Search</title>
+</head>
+<body>
+    <h1>News Search</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="weather_city">City:</label>
+        <input type="text" name="weather_city" id="weather_city">
+        <br>
+        <label for="site">Site:</label>
+        <input type="text" name="site" id="site">
+        <br>
+        <button type="submit">Search</button>
+    </form>
+    <h2>Result</h2>
+    <ul>
+        {% for data in weather_data %}
+            <li>지역: {{ data.city }}</li>
+            <li>날짜/시간: {{ data.datetime }}</li>
+            <li>날씨: {{ data.weather }}</li>
+            <li>온도: {{ data.tmn }}</li>
+            <br>
+        {% endfor %}
+    </ul>
+</body>
+</html>

@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DBNEWSMOA</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: rgb(233, 240, 246);
+        }
+
+        #header {
+            width:98%;
+            font-size: 21px;
+            font-family: Georgia, sans-serif;
+            background-color: white;
+            color: #284885;
+            text-align: left;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            border-bottom: 3px solid #7d9fd9;
+            justify-content: space-between;
+        }
+        #headeryou {
+            width:1250px;
+            text-align: center;
+            color: #284885;
+            text-align: left;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1.7px solid #7d9fd9;
+            justify-content: space-between;
+            margin: 0 auto;
+        }
+
+        #logo {
+            width:30%;
+            font-size: 74px;
+            font-weight: round;
+
+        }
+        #categories {
+            text-align: left;
+            font-family: 'IBM Plex Sans KR', sans-serif;
+            display: flex;
+            gap: 20px;
+            margin-bottom: -50px;
+
+            text-decoration-line: none;
+            color: white;
+            padding-inline: 20px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            margin-right: 500px;
+        }
+
+        #categories a {
+            color: black;
+            font-family: 'IBM Plex Sans KR', sans-serif;
+            font-size: 25px;
+        }
+
+        a{
+            text-decoration-line: none;
+            color: black;
+            font-size: 24px;
+
+        }
+
+        #verticalLine {
+            width: 3px; /* 세로 선의 너비 */
+            height: 25px;
+            background-color: #B6C6D3;
+            margin: 0 20px; /* 선 좌우 여백 */
+        }
+        #verticalLinebold {
+            margin-bottom: -50px;
+            width: 3px; /* 세로 선의 너비 */
+            height: 25px;
+            background-color: #B6C6D3;
+            margin: 0 20px; /* 선 좌우 여백 */
+        }
+        .search-container {
+            width: 700px;
+            height: 100px;
+            margin: 100px auto;
+            text-align: center;
+            display: flex;
+            border: 1px solid #ccc;
+            border-radius: 50px;
+            overflow: hidden;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            outline: none;
+        }
+
+        #headertwo {
+            font-family: 'Gowun Dodum', sans-serif;
+            display: flex;
+            width:98%;
+            color: #284885;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            border-bottom: 3px solid #6F8DBF;
+            justify-content: space-between;
+        }
+
+        .search-button {
+            background-color: #30516d;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+        }
+        .search-back {
+            height:500px;
+            display: flex;
+            justify-content: space-between;
+            line-height: 2;
+            background-color: rgb(233, 240, 246);
+            color: black;
+        }
+        #breaking-news {
+            font-weight: bold;
+            line-height: 2;
+            margin-right: 10px;
+            padding-right: 10px;
+        }
+
+        #weathercon{
+            display: flex;
+            width: 100%;
+            justify-content: center; /* 중앙 정렬을 위한 추가 스타일 */
+            align-items: center;
+            margin-top:100px;
+        }
+        #weathercon img {
+            width: 400px; /* 원하는 너비로 설정 */
+            height: auto; /* 자동으로 높이 계산 */
+        }
+        #weatherconside{
+            display: flex;
+            width: 100%;
+            height: 80px;
+            justify-content: center; /* 중앙 정렬을 위한 추가 스타일 */
+            align-items: center;
+        }
+
+        .weather{
+            color: #3b88b2;
+            margin:0 100px;
+            padding-top:100px;
+            font-size: 120px;
+            width: 300px;
+            height: 300px;
+            font-family: 'Nova Square', sans-serif;
+            text-shadow: 3px 3px 3px rgb(185, 193, 201);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .weathertwo{
+            margin-top: -350px;
+            margin-left: 70px;
+            padding-top:100px;
+            font-size: 120px;
+            width: 300px;
+            height: 300px;
+            font-family: 'Nova Square', sans-serif;
+            text-shadow: 3px 3px 3px rgb(185, 193, 201);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .weatherbottom{
+            margin-top: -200px;
+            margin-left: 200px;
+            margin-right: 200px;
+            font-size: 30px;
+            width: 300px;
+            height: 300px;
+            font-family: 'Gowun Dodum', sans-serif;
+            text-shadow: 3px 3px 3px rgb(185, 193, 201);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .menucontainer {
+            box-shadow: 3px 3px 3px 3px rgb(185, 193, 201);
+            width: 300px;
+            height: 50px;
+            font-family: 'Gowun Dodum', sans-serif;
+            text-align: center;
+            font-size: 30px;
+            flex: 2;
+            margin-left: 30px;
+            margin-right: 30px;
+            text-decoration-line: none;
+            border-radius: 30px;
+            padding-left: 10px;
+            padding-right: 10px;
+            margin-top: 40px;
+            background-color: white;
+            background-clip: border-box;
+            border: none;
+        }
+
+        #siti {
+            width: 100%;
+            justify-content: space-around;
+            align-items: center;
+
+        }
+
+        #weathercon {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #weathercon img {
+            width: 400px;
+            height: auto;
+        }
+
+        #weatherconside {
+            display: flex;
+            width: 100%;
+            height: 80px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #weather, #weathertwo, #weatherbottom, #container {
+            text-align: center;
+        }
+
+        #oneweek {
+            display: flex;
+            width: 100%;
+            height: 200px;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            width: 100px;
+            height: auto;
+            text-align: center;
+            font-size: 30px;
+            flex: 2;
+            margin-left: 30px;
+            margin-right: 30px;
+            text-decoration-line: none;
+            border-radius: 30px;
+            padding-left: 10px;
+            padding-right: 10px;
+            margin-top: 40px;
+            background-color: white;
+            background-clip: border-box;
+            border: none;
+            font-family: 'Gowun Dodum', sans-serif;
+        }
+        .container img{
+            width: 80px;
+            height: 80px;
+        }
+
+        .now{
+            margin-top: -100px;
+            font-family: 'Gowun Dodum', sans-serif;
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+            font-size: 50px;
+        }
+        .containerin{
+            font-family: 'Gowun Dodum', sans-serif;
+            text-align: center;
+            font-size: 20px;
+        }
+        *{padding:0;margin:0}
+        li{list-style:none}
+        a{text-decoration:none;font-size:14px}
+
+        .menu {
+            width: 100%;
+            overflow: hidden;
+            position: absolute; /* 추가: 드롭다운의 위치를 절대 위치로 설정 */
+            top: 106px; /* 추가: 페이지 맨 위에 위치하도록 설정 */
+            font-family: 'Gowun Dodum', sans-serif;
+            }
+
+            .menu > li {
+            width: 12.5%; /*20*5=100%*/
+            float: left;
+            text-align: center;
+            line-height: 40px;
+            background-color: #5778ff;
+            }
+
+            .menu a {
+            color: #fff;
+            font-size: 20px;
+            }
+
+            .submenu > li {
+            line-height: 50px;
+            background-color: #94a9ff;
+            }
+
+            .submenu {
+            height: 0; /*ul의 높이를 안보이게 처리*/
+            overflow: hidden;
+            }
+
+            .submenu button{
+                color: #fff;
+                font-size: 20px;
+                border: 0;
+                background-color: transparent;
+                font-family: 'Gowun Dodum', sans-serif;
+            }
+            .menu > li:hover {
+            background-color: #94a9ff;
+            transition-duration: 0.5s;
+            }
+
+            .menu > li:hover .submenu {
+            height: 400px; /*서브메뉴 li한개의 높이 50*5*/
+            transition-duration: 1s;
+            }
+    </style>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@600;700&display=swap">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nova+Square&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+</head>
+
+<body>
+    <!--윗부분-->
+    <div id="header">
+        <div id="logo" ><a href="{%url 'main'%}" style="font-size: 74px;color: #12326e;">DBNEWSMOA</a></div>
+            <div id="categories">
+                <div><a href="{% url 'economy' %}">경제</a></div>
+                <div id="verticalLinebold"></div>
+                <div><a href="{% url 'politics' %}">정치</a></div>
+                <div id="verticalLinebold"></div>
+                <div><a href="{% url 'sports' %}">스포츠</a></div>
+            </div>
+
+    </div>
+</body>
+
+<bottom>
+    <div id="siti">
+        <form method="post">
+        {% csrf_token %}
+        <ul class="menu">
+                <li>
+                    <a href="#">주요도시</a>
+                    <ul class="submenu">
+                        <li><button type="submit" name="city" value="서울">서울</button></li>
+                        <li><button type="submit" name="city" value="부산">부산</button></li>
+                        <li><button type="submit" name="city" value="울산">울산</button></li>
+                        <li><button type="submit" name="city" value="대구">대구</button></li>
+                        <li><button type="submit" name="city" value="광주">광주</button></li>
+                        <li><button type="submit" name="city" value="대전">대전</button></li>
+                        <li><button type="submit" name="city" value="서귀포">서귀포</button></li>
+                        <li><button type="submit" name="city" value="울릉도">울릉도</button></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">경기도</a>
+                    <ul class="submenu">
+                        <li><button type="submit" name="city" value="수원">수원</button></li>
+                        <li><button type="submit" name="city" value="파주">파주</button></li>
+                        <li><button type="submit" name="city" value="이천">이천</button></li>
+                        <li><button type="submit" name="city" value="평택">평택</button></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">강원도</a>
+                    <ul class="submenu">
+                        <li><button type="submit" name="city" value="춘천">춘천</button></li>
+                        <li><button type="submit" name="city" value="원주">원주</button></li>
+                        <li><button type="submit" name="city" value="강릉">강릉</button></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">전라남도</a>
+                    <ul class="submenu">
+                        <li><button type="submit" name="city" value="목포">목포</button></li>
+                        <li><button type="submit" name="city" value="여수">여수</button></li>
+                        <li><button type="submit" name="city" value="순천">순천</button></li>
+                        <li><button type="submit" name="city" value="광양">광양</button></li>
+                        <li><button type="submit" name="city" value="나주">나주</button></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">전라북도</a>
+                    <ul class="submenu">
+                        <li><button type="submit" name="city" value="고창">고창</button></li>
+                        <li><button type="submit" name="city" value="무주">무주</button></li>
+                        <li><button type="submit" name="city" value="전주">전주</button></li>
+                        <li><button type="submit" name="city" value="군산">군산</button></li>
+                        <li><button type="submit" name="city" value="정읍">정읍</button></li>
+                        <li><button type="submit" name="city" value="남원">남원</button></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">충청도</a>
+                    <ul class="submenu">
+                        <li><button type="submit" name="city" value="세종">세종</button></li>
+                        <li><button type="submit" name="city" value="홍성">홍성</button></li>
+                        <li><button type="submit" name="city" value="청주">청주</button></li>
+                        <li><button type="submit" name="city" value="충주">충주</button></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">경상남도</a>
+                    <ul class="submenu">
+                        <li><button type="submit" name="city" value="창원">창원</button></li>
+                        <li><button type="submit" name="city" value="진주">진주</button></li>
+                        <li><button type="submit" name="city" value="거창">거창</button></li>
+                        <li><button type="submit" name="city" value="통영">통영</button></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">경상북도</a>
+                    <ul class="submenu">
+                        <li><button type="submit" name="city" value="안동">안동</button></li>
+                        <li><button type="submit" name="city" value="나주">나주</button></li>
+                        <li><button type="submit" name="city" value="포항">포항</button></li>
+                        <li><button type="submit" name="city" value="경주">경주</button></li>
+                        <li><button type="submit" name="city" value="울진">울진</button></li>
+                    </ul>
+                </li>
+            </ul>
+        </form>
+    </div>
+
+    <div id="weathercon">
+        <div class="weather">{{ weather_data.0.tmn|default:"" }}°C</div>
+        <img id="day0Img" src="https://media.discordapp.net/attachments/1172434700401389588/1181886018924838992/0270df7833db9c55.png">
+        <div class="weather">{{ weather_data.0.tmx|default:"" }}°C</div>
+    </div>
+    <div id="weatherconside">
+        <div class="weatherbottom">최저온도</div>
+        <div class="now">도시: {{ weather_data.0.city|default:"" }}</div>
+        <div class  ="weatherbottom">최고온도</div>
+    </div>
+    <div id="oneweek">
+        <div class="container" id="day1">
+            {{ weather_data.1.date|default:"" }}
+            <img id="day1Img" src="https://media.discordapp.net/attachments/1172434700401389588/1181886018924838992/0270df7833db9c55.png">
+            <div class="containerin">{{ weather_data.1.tmn|default:"" }}°C/{{ weather_data.1.tmx|default:"" }}°C</div>
+        </div>
+        <div class="container"id="day2">
+            {{ weather_data.2.date|default:"" }}
+            <img id="day2Img" src="https://media.discordapp.net/attachments/1172434700401389588/1181886018924838992/0270df7833db9c55.png">
+            <div class="containerin">{{ weather_data.2.tmn|default:"" }}°C/{{ weather_data.2.tmx|default:"" }}°C</div>
+        </div>
+        <div class="container"id="day3">
+            {{ weather_data.3.date|default:"" }}
+            <img id="day3Img" src="currentWeatherImg" src="기본 이미지 주소">
+            <div class="containerin">{{ weather_data.3.tmn|default:"" }}°C/{{ weather_data.3.tmx|default:"" }}°C</div>
+        </div>
+        <div class="container"id="day4">
+            {{ weather_data.4.date|default:"" }}
+            <img id="day4Img" src="https://media.discordapp.net/attachments/1172434700401389588/1181886018924838992/0270df7833db9c55.png">
+            <div class="containerin">{{ weather_data.4.tmn|default:"" }}°C/{{ weather_data.4.tmx|default:"" }}°C</div>
+        </div>
+        <div class="container"id="day5">
+            {{ weather_data.5.date|default:"" }}
+            <img id="day5Img" src="https://media.discordapp.net/attachments/1172434700401389588/1181886018924838992/0270df7833db9c55.png">
+            <div class="containerin">{{ weather_data.5.tmn|default:"" }}°C/{{ weather_data.5.tmx|default:"" }}°C</div>
+        </div>
+        <div class="container"id="day6">
+            {{ weather_data.6.date|default:"" }}
+            <img id="day6Img" src="https://media.discordapp.net/attachments/1172434700401389588/1181886018924838992/0270df7833db9c55.png">
+            <div class="containerin">{{ weather_data.6.tmn|default:"" }}°C/{{ weather_data.6.tmx|default:"" }}°C</div>
+        </div>
+        <div class="container"id="day7">
+            {{ weather_data.7.date|default:"" }}
+            <img id="day7Img" src="https://media.discordapp.net/attachments/1172434700401389588/1181886018924838992/0270df7833db9c55.png">
+            <div class="containerin">{{ weather_data.7.tmn|default:"" }}°C/{{ weather_data.7.tmx|default:"" }}°C</div>
+        </div>
+    </div>
+</bottom>
+<script>
+    var weatherInfo = {
+        day0: '{{ weather_data.0.weather|default:"" }}',
+        day1: '{{ weather_data.1.weather|default:"" }}',
+        day2: '{{ weather_data.2.weather|default:"" }}',
+        day3: '{{ weather_data.3.weather|default:"" }}',
+        day4: '{{ weather_data.4.weather|default:"" }}',
+        day5: '{{ weather_data.5.weather|default:"" }}',
+        day6: '{{ weather_data.6.weather|default:"" }}',
+        day7: '{{ weather_data.7.weather|default:"" }}',
+    };
+
+        //임의로넣은건데 여기서정보받으면됨
+    for (var i = 0; i <= Object.keys(weatherInfo).length; i++) {
+        var day = 'day' + i;
+        changeImageBasedOnCondition(day, weatherInfo[day]);
+    }
+    // 각 날짜에 따라 이미지를 변경하는 함수
+    function changeImageBasedOnCondition(day, weatherCondition) {
+        // 이미지를 변경할 요소를 가져옴
+        var imageElement = document.querySelector('#' + day + 'Img');
+
+        // 조건에 따라 이미지 소스 변경
+        if (weatherCondition === '맑음') {
+            imageElement.src = 'https://media.discordapp.net/attachments/1172434700401389588/1181886020963270656/40f74c7dfca0560a.png';
+        }
+        else if (weatherCondition === '흐림') {
+            imageElement.src = 'https://media.discordapp.net/attachments/1172434700401389588/1181886021420462090/697cf978683f48b4.png';
+        }
+        else if (weatherCondition === '비') {
+            imageElement.src = 'https://media.discordapp.net/attachments/1172434700401389588/1181886020569018379/a2ff2e3b15e5bd82.png';
+        }
+        else if (weatherCondition === '눈') {
+            imageElement.src = 'https://media.discordapp.net/attachments/1172434700401389588/1181886019356860516/1402afc40482f403.png';
+        }
+        else if (weatherCondition === '폭풍우') {
+            imageElement.src = 'https://media.discordapp.net/attachments/1172434700401389588/1181886020569018379/a2ff2e3b15e5bd82.png';
+        }
+        else if (weatherCondition === '흐리고 비') {
+            imageElement.src = 'https://media.discordapp.net/attachments/1172434700401389588/1181886020569018379/a2ff2e3b15e5bd82.png';
+        }
+        else if (weatherCondition === '구름맑음') {
+            imageElement.src = 'https://media.discordapp.net/attachments/1172434700401389588/1181886021193965659/fcd9b2067204ece8.png';
+        }
+        else
+        {
+            imageElement.src = 'https://media.discordapp.net/attachments/1172434700401389588/1181886020569018379/a2ff2e3b15e5bd82.png';
+        }
+
+        // 추가적인 조건에 따라 필요한 만큼 계속해서 분기를 추가할 수 있습니다.
+    }
+
+    // 각 날짜에 대한 날씨 정보
+
+    // 각 날짜에 대해 날씨 조건에 따라 이미지 변경 함수 호출
+
+    for (var day in weatherInfo) {
+        changeImageBasedOnCondition(day, weatherInfo[day]);
+    }
+</script>
+</body>
+
+</html>

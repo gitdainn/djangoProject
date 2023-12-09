@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>News Search</title>
+</head>
+<body>
+    <h1>News Search</h1>
+    <form method="post">
+        {% csrf_token %}
+        <!-- 각 버튼 눌렸을 때, method="post"로 지정한 name으로 value값이 전송됨 -->
+        <button type="submit" name="selected_news" value="naver">Naver</button>
+        <button type="submit" name="selected_news" value="bbc">BBC</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Economic Data</title>
+</head>
+<body>
+    <h1>Economic Data</h1>
+    <ul>
+        {% for data in data_list %}
+                <br><li>주소: {{ data.address }}</li>
+                <li>일자: {{ data.date }}</li>
+                <li>언론사: {{ data.media_outlet }}</li>
+                <li>기고자: {{ data.author }}</li>
+                <li>제목: {{ data.title }}</li>
+                <li>본문: {{ data.main_body }}</li>
+                <hr>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

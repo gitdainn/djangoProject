@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>News Search</title>
+</head>
+<body>
+    <h1>Input Keyword</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="keyword">City:</label>
+        <input type="text" name="keyword" id="keyword">
+        <br>
+        <label for="date">날짜</label>
+        <input type="text" name="date" id="date">
+        <button type="submit" name="search_type" value="keyword">키워드 검색</button>
+        <button type="submit" name="search_type" value="date">날짜 검색</button>
+        <br>
+    </form>
+    <h2>Result</h2>
+    <ul>
+        {% for data in loaded_data %}
+        	 <li>id: {{ data.id }}</li>
+                 <li>주소: {{ data.address }}</li>
+                 <li>일자: {{ data.date }}</li>
+                 <li>언론사: {{ data.media_outlet }}</li>
+                 <li>기고자: {{ data.author }}</li>
+                 <li>제목: {{ data.title }}</li>
+                 <li>통합분류1: {{ data.category1 }}</li>
+                 <li>통합분류2: {{ data.category2 }}</li>
+                 <li>통합분류3: {{ data.category3 }}</li>
+                 <li>개체명(지역): {{ data.entity_location }}</li>
+                 <li>개체명(기업기관): {{ data.entity_company }}</li>
+                 <li>키워드: {{ data.keywords }}</li>
+                 <li>특성추출: {{ data.feature }}</li>
+                 <li>본문: {{ data.main_body }}</li>
+                 <li>원본주소: {{ data.original_source }}</li>
+                <br>
+        {% endfor %}
+    </ul>
+</body>
+</html>

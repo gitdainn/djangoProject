@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Suggestions</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+    <h1>Search Suggestions</h1>
+    <input type="text" id="searchInput" placeholder="Type your search term">
+    <ul id="suggestionsList"></ul>
+
+    <script>
+        $(document).ready(function(){
+            $('#searchInput').on('input', function(){
+                var searchTerm = $(this).val();
+                $.ajax({
+                    url: '/get_suggestions/',
+                    data: {'term': searchTerm},
+                    dataType: 'json',
+                    success: function(data){
+                        var suggestionsList = $('#suggestionsList');
+                        suggestionsList.empty();
+                        data.suggestions.forEach(function(suggestion){
+                            suggestionsList.append('<li>' + suggestion + '</li>');
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

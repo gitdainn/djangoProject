@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>News Search</title>
+</head>
+<body>
+    <h1>News Search</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="search_term">Search Term:</label>
+        <input type="text" name="search_term" id="search_term">
+        <br>
+        <label for="site">Site:</label>
+        <input type="text" name="site" id="site">
+        <br>
+        <button type="submit">Search</button>
+    </form>
+    <h2>Result</h2>
+    <ul>
+        {% for title, link in titles_and_links %}
+        <li>
+            <p>Title: {{ title }}</p>
+            <p>Link: <a href="{{ link }}" target="_blank">{{ link }}</a></p>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

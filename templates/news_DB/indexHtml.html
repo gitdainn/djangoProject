@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trending News</title>
+</head>
+<body>
+    <h1>Trending News</h1>
+    <ul>
+        {% for news in trending_news %}
+            <li><a href="{{ news.link }}">{{ news.title }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
